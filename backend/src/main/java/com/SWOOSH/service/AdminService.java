@@ -88,6 +88,7 @@ public class AdminService {
         user.setPassword(new BCryptPasswordEncoder(12).encode(passwordForEmployee));
         //user.setPassword(passwordForEmployee);
 
+
         System.out.println(passwordForEmployee);
 
 
