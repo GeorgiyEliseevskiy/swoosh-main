@@ -42,7 +42,8 @@ public class AdminService {
     private final EmployeeRepository employeeRepository;
     private final ServiceRepository serviceRepository;
     private final OrderRepository orderRepository;
-    private final int lengthPassword = 10;
+    private final EmailService emailService;
+
 
     public Boolean createCarWash(CarWashDTO carWashDTO) {
         if (carWashRepository.existCarWashByLocation(carWashDTO.getLocation())) {
@@ -84,13 +85,10 @@ public class AdminService {
         user.setName(registrationDTO.getName());
         user.setPhone(registrationDTO.getPhone());
 
-        //user.setPassword(new BCryptPasswordEncoder(12).encode(registrationDTO.getPassword()));
         user.setPassword(new BCryptPasswordEncoder(12).encode(passwordForEmployee));
-        //user.setPassword(passwordForEmployee);
-
+        emailService.sendEmailWithPasswordForEmployee(registrationDTO.getEmail(), passwordForEmployee);
 
         System.out.println(passwordForEmployee);
-
 
         user.setRole(Role.EMPLOYEE);
         user.setStatus(Status.ACTIVE);
