@@ -30,7 +30,7 @@ public class EmailService {
         props.put("mail.smtp.host", "smtp.yandex.ru");
         props.put("mail.smtp.port", "465");
         props.put("mail.smtp.ssl.enable", "true");
-        //a
+        //ab
         Session session = Session.getDefaultInstance(props, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
