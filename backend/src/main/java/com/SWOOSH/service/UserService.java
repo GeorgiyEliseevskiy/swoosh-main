@@ -38,7 +38,7 @@ public class UserService implements UserDetailsService {
         } else if (user.getEmail() != null) {
             return false;
         }
-//12312312312
+
         user.setEmail(registrationDTO.getEmail());
         user.setName(registrationDTO.getName());
         user.setPhone(registrationDTO.getPhone());

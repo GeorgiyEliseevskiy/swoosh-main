@@ -1,6 +1,7 @@
 package com.SWOOSH.service;
 
 import com.SWOOSH.PasswordGenerator;
+import com.SWOOSH.Promocodes;
 import com.SWOOSH.dto.CarWashDTO;
 import com.SWOOSH.dto.OrderDTO;
 import com.SWOOSH.dto.RegistrationDTO;
@@ -13,11 +14,7 @@ import com.SWOOSH.model.CarWash;
 import com.SWOOSH.model.Employee;
 import com.SWOOSH.model.Order;
 import com.SWOOSH.model.User;
-import com.SWOOSH.repository.CarWashRepository;
-import com.SWOOSH.repository.EmployeeRepository;
-import com.SWOOSH.repository.OrderRepository;
-import com.SWOOSH.repository.ServiceRepository;
-import com.SWOOSH.repository.UserRepository;
+import com.SWOOSH.repository.*;
 import com.SWOOSH.service.util.UserUtilService;
 import java.util.ArrayList;
 import java.util.Comparator;

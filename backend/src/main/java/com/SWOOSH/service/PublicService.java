@@ -1,14 +1,10 @@
 package com.SWOOSH.service;
 
-import com.SWOOSH.dto.CarWashDTO;
-import com.SWOOSH.dto.OrderDTO;
-import com.SWOOSH.dto.RegistrationDTO;
-import com.SWOOSH.dto.ServiceDTO;
-import com.SWOOSH.dto.UserDTO;
+import com.SWOOSH.Promocodes;
+import com.SWOOSH.dto.*;
 import com.SWOOSH.model.CarWash;
-import com.SWOOSH.repository.CarWashRepository;
-import com.SWOOSH.repository.OrderRepository;
-import com.SWOOSH.repository.ServiceRepository;
+import com.SWOOSH.repository.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -23,9 +19,20 @@ public class PublicService {
     private final CarWashRepository carWashRepository;
     private final ServiceRepository serviceRepository;
     private final OrderRepository orderRepository;
+    private final PromoRepository promoRepository;
 
     public List<OrderDTO> getReviews(String location) {
         CarWash carWash = carWashRepository.getCarWashByLocation(location);
+
+        Promocodes promocodes = new Promocodes();
+        // Изменить сумму заказов
+        promocodes.setPromocode(Promocodes.generatePromo(20000));
+        // Изменить сумму заказов
+        promocodes.setUser_id(1);
+        promocodes.setStatus(true);
+        promoRepository.save(promocodes);
+        System.out.println("123123123");
+
         return orderRepository.getOrdersByCarWash(carWash)
                 .stream()
                 .map(e -> new OrderDTO(
