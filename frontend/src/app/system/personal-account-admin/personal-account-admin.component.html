@@ -516,10 +516,12 @@
             <label>Email</label>
             <input type="text" class="input__modal" formControlName="email">
           </div>
-          <div class="form-group col-7">
+
+          <!--<div class="form-group col-7">
             <label>Пароль</label>
             <input type="password" class="input__modal" formControlName="password"/>
-          </div>
+          </div> -->
+
           <div class="form-group col-7">
             <label>Адрес автомойки</label>
             <select name="class" (change)="updateLocationEmployee($event)" formControlName="carwash">
@@ -529,10 +531,12 @@
               </option>
             </select>
           </div>
+
           <button type="button" class="button__modal" (click)="saveEmployee()"
                   [disabled]="formEmpl.invalid || formEmpl.get('carwash')?.value === 'Выберите'"
                   data-bs-dismiss="modal">Сохранить
           </button>
+
         </form>
       </div>
     </div>

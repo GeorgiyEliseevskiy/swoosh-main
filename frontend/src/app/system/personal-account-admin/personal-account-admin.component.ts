@@ -92,7 +92,7 @@ export class PersonalAccountAdminComponent implements OnInit {
       name: new FormControl('', [Validators.required]),
       carwash: new FormControl('', [Validators.required]),
       phone: new FormControl('', [Validators.required, Validators.minLength(10)]),
-      password: new FormControl('', [Validators.required, Validators.minLength(6)])
+      // password: new FormControl('', [Validators.required, Validators.minLength(6)])
     })
     this.formCarWash = this.formBuilder.group({
       name: new FormControl('', [Validators.required]),
@@ -220,6 +220,8 @@ export class PersonalAccountAdminComponent implements OnInit {
         this.employeeAdd.push(employee);
       }
     });
+    alert('Пароль выслан на почту сотрудника')
+
   }
 
   updateLocationService(event: Event) {
