@@ -11,10 +11,14 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+
+import com.SWOOSH.controller.regauth.AuthenticationController;
 import lombok.RequiredArgsConstructor;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.ModelAndView;
 
 @Service
 @RequiredArgsConstructor
@@ -22,6 +26,7 @@ public class EmailService {
 
     private String user = "swoosh.carwash@yandex.ru";
     private String password = "Swooshmail1@1342asd";
+    private final AuthenticationController authenticationController;
 
     public void sendEmailWithPromoForUser(String email, String promo) {
         Message msg = authenticationEmail(user, password);
@@ -54,7 +59,6 @@ public class EmailService {
     }
 
     public void sendEmail(String email, String message) {
-
         Message msg = authenticationEmail(user, password);
 
         try {
@@ -64,6 +68,7 @@ public class EmailService {
             msg.setSubject("Swoosh confirm");
             msg.setSentDate(new Date());
             msg.setText("Код подтверждения: " + message);
+            authenticationController.confirmCodeEmail(message);
             Transport.send(msg);
         } catch (MessagingException e) {
             e.printStackTrace();

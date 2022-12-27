@@ -1,0 +1,14 @@
+.main_mr_css_attr {
+    background: #fff;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.content_mr_css_attr {
+    width: 100%;
+    max-width: 600px;
+    margin: 10px auto;
+}
